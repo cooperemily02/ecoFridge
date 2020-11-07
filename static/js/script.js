@@ -1,7 +1,7 @@
 $(function(){
     var ms = $('#ms-scrabble').magicSuggest({
         placeholder: 'Enter your ingredients',
-        allowFreeEntries:false,
+        allowFreeEntries:true,
         autoSelect:true,
         matchCase:true,
         maxDropHeight:145,
