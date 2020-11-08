@@ -82,14 +82,7 @@ document.getElementById('button1').onclick = function getRecipes() {
             str+=',';
         }
     }
-    /*
-    let cuisstr = "";
-    var checkboxes = document.querySelectorAll('input[name="cuisine"]:checked');
-    console.log(checkboxes);
-    checkboxes.forEach((checkbox) => {
-        cuisstr+=(checkbox.value);
-    });
-    */
+    
     let checkboxes = document.getElementsByName('cuisine');
     let cuisstr = "";
     for(var i = 0; i < checkboxes.length; i++)  
@@ -109,7 +102,7 @@ document.getElementById('button1').onclick = function getRecipes() {
 
     console.log(cuisstr);
     console.log(current.length);
-    let url = 'https://api.spoonacular.com/recipes/complexSearch?includeIngredients=' + str + '&cuisine=' + cuisstr + '&excludeIngredients=' + allergy + '&diet=' + restriction + '&number=10&apiKey=4ec4e2d99b964af2998e87a70a46d90d';
+    let url = 'https://api.spoonacular.com/recipes/complexSearch?includeIngredients=' + str + '&cuisine=' + cuisstr + '&excludeIngredients=' + allergy + '&diet=' + restriction + '&number=10&apiKey=c26afc8148f444438f7935c1f1d4298f';
     fetch(url).then((res)=>{
         return res.json();
     }).then((data)=>{
@@ -130,7 +123,7 @@ document.getElementById('button1').onclick = function getRecipes() {
 
 function createCard(recid)
 {
-    let url2 = 'https://api.spoonacular.com/recipes/' + recid.id + '/information?apiKey=4ec4e2d99b964af2998e87a70a46d90d';
+    let url2 = 'https://api.spoonacular.com/recipes/' + recid.id + '/information?apiKey=c26afc8148f444438f7935c1f1d4298f';
     let recipelink;
     fetch(url2).then((res)=>{
         return res.json();
