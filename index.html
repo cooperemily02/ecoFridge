@@ -2,14 +2,180 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous"> 
     <link href="assets/magicsuggest/magicsuggest-min.css" rel="stylesheet">
-    <link rel = "stylesheet" href="static/css/stylesheet.css">
+    <link rel = "stylesheet" href="/static/css/stylesheet.css">
+
+    <title>EcoFridge</title>
   </head>
   <body>
-    <div id = 'di'>
-        <input id = 'ms-scrabble'></input>
-    </div>
+    <header>
+      <div>
+        <img
+          src="https://cdn.glitch.com/70f336f9-db49-4e63-8313-c6a48cbb6ee8%2FEcoFridge_3.png?v=1604802837538"
+          alt="logo"
+          width="23%"
+          class="center"
+        />
+      </div>
+    </header>
+    <main>
+      <div id="fridge">
+        <img
+          src="https://cdn.glitch.com/70f336f9-db49-4e63-8313-c6a48cbb6ee8%2FHome_Page.png?v=1604789961181"
+          alt="fridge design"
+          class="center"
+          onclick="changeImage()"
+          id="imgClickAndChange"
+        />
+      </div>
+
+        <div id="majorcol">
+          <h1>
+            Find a Recipe!
+          </h1>
+          <div id="col1">
+            <div id = 'di'>
+              <!--Search bar-->
+
+              <p>Pick your ingredients <input id="ms-scrabble" /></p>
+            </div>
+          </div>
+          <div id="col2">
+            <input type="checkbox"name = "cuisine" id="african"/>
+            <label> African</label><br />
+
+            <input type="checkbox" name = "cuisine" id="american"/>
+            <label> American</label><br />
+
+            <input type="checkbox" name = "cuisine" id="british"/>
+            <label> British</label><br />
+
+            <input type="checkbox" name = "cuisine" id="cajun"/>
+            <label> Cajun</label><br />
+
+            <input type="checkbox" name = "cuisine" id="caribbean"/>
+            <label> Caribbean</label><br />
+
+            <input type="checkbox" name = "cuisine" id="chinese"/>
+            <label> Chinese</label><br />
+
+            <input type="checkbox" name = "cuisine" id="easterneuropean"/>
+            <label> Eastern European</label><br />
+
+            <input type="checkbox" name = "cuisine" id="european"/>
+            <label> European</label><br />
+
+            <input type="checkbox" name = "cuisine" id="french"/>
+            <label> French</label><br />
+
+            <input type="checkbox" name = "cuisine" id="german"/>
+            <label> German</label><br />
+
+            <input type="checkbox" name = "cuisine" id="greek"/>
+            <label> Greek</label><br />
+
+            <input type="checkbox" name = "cuisine" id="indian"/>
+            <label> Indian</label><br />
+
+            <input type="checkbox" name = "cuisine" id="irish"/>
+            <label> Irish</label><br />
+          </div>
+
+          <div id="col3">
+            <input type="checkbox" name = "cuisine" id="italian"/>
+            <label> Italian</label><br />
+
+            <input type="checkbox" name = "cuisine" id="japanese"/>
+            <label> Japanese</label><br />
+
+            <input type="checkbox" name = "cuisine" id="jewish"/>
+            <label> Jewish</label><br />
+
+            <input type="checkbox" name = "cuisine" id="korean"/>
+            <label> Korean</label><br />
+
+            <input type="checkbox" name = "cuisine" id="latinamerican"/>
+            <label> Latin American</label><br />
+
+            <input type="checkbox" name = "cuisine" id="mediterranean"/>
+            <label> Mediterranean</label><br />
+
+            <input type="checkbox" name = "cuisine" id="mexican"/>
+            <label> Mexican</label><br />
+
+            <input type="checkbox" name = "cuisine" id="middleeastern"/>
+            <label> Middle Eastern</label><br />
+
+            <input type="checkbox" name = "cuisine" id="nordic"/>
+            <label> Nordic</label><br />
+
+            <input type="checkbox" name = "cuisine" id="southern"/>
+            <label> Southern</label><br />
+
+            <input type="checkbox" name = "cuisine" id="spanish"/>
+            <label> Spanish</label><br />
+
+            <input type="checkbox" name = "cuisine" id="thai"/>
+            <label> Thai</label><br />
+
+            <input type="checkbox" name = "cuisine" id="vietnamese"/>
+            <label> Vietnamese</label><br />
+          </div>
+          <div id="col4">
+            <div>
+              <label>Allergies:</label>
+              <select id="allergies" form="carform">
+                <option value = "none">None</option>
+                <option value="dairy">Dairy</option>
+                <option value="peanut">Peanut</option>
+                <option value="soy">Soy</option>
+                <option value="egg">Egg</option>
+                <option value="seafood">Seafood</option>
+                <option value="sulfite">Sulfite</option>
+                <option value="gluten">Gluten</option>
+                <option value="sesame">Sesame</option>
+                <option value="tree nut">Tree Nut</option>
+                <option value="grain">Grain</option>
+                <option value="shellfish">Shellfish</option>
+                <option value="wheat">Wheat</option>
+              </select>
+            </div>
+            <div>
+              <label>Dietary Restriction:</label>
+              <select id="diet" form="carform">
+                <option value = "none">None</option>
+                <option value="gluten free">Gluten Free</option>
+                <option value="ketogenic">Ketogenic</option>
+                <option value="vegetarian">Vegetarian</option>
+                <option value="lacto-vegetarian">Lacto-Vegetarian</option>
+                <option value="ovo-vegetarian">Ovo-Vegetarian</option>
+                <option value="vegan">Vegan</option>
+                <option value="pescetarian">Pescetarian</option>
+                <option value="paleo">Paleo</option>
+                <option value="primal">Primal</option>
+                <option value="whole30">Whole30</option>
+              </select>
+            <div>
+              <button id="button1" class = "mybtn"> </button>
+            </div>
+            <div>
+              <button id="restart">
+                 New Search
+              </button>
+            </div>
+          </div>
+        </div>
+      <br />
+      <br />
+    </main>
+    
+  
+    
       
   </body>
         
@@ -21,3 +187,9 @@
   <script src="assets/magicsuggest/magicsuggest-min.js"></script>
   </body>
 </html>
+
+
+<!-- <div id = 'di'>
+  <input id = 'ms-scrabble'></input>
+  <button id = "button1">Button</button>
+</div> -->
