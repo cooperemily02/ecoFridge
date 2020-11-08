@@ -2,7 +2,7 @@ body{
   background-color:#faebfa;
   text-align:center;
   margin:50px;
-  font-family: 'Kavivanar', cursive;
+  font-family: 'Lekton', sans-serif;;
   color:white;
 }
 
@@ -14,6 +14,7 @@ header{
   margin-left: 20px;
   margin-top:20px;
 }
+
 
 #ms-scrabble{
   width: 150%;
@@ -70,10 +71,10 @@ select{
   font-size:15px;
 }
 #majorcol{
-  width: 85%;
+  width: 95%;
   margin: 0;
   margin-left: 15%;
-  background-color: pink;
+  background-color: #6cd5d8;
   overflow: hidden;
   border: white 4px outset;
   border-radius: 10px;
@@ -84,13 +85,13 @@ select{
 }
 
 #majorcol h1{
-  font-size:25px;
+  font-size:30px;
   margin:2%;
   padding:0;
 }
 
 #majorcol #col1{
-  background-color:pink;
+  background-color:#6cd5d8;
   width:25%;
   display: inline;
   float:left;
@@ -99,7 +100,7 @@ select{
 }
 
 #majorcol #col2{
-  background-color:pink;
+  background-color:#6cd5d8;
   width:22%;
   display: inline;
   float:left;
@@ -107,7 +108,7 @@ select{
 }
 
 #majorcol #col3{
-  background-color:pink;
+  background-color:#6cd5d8;
   width:22%;
   display: inline;
   float:left;
@@ -115,7 +116,7 @@ select{
 }
 
 #majorcol #col4{
-  background-color:pink;
+  background-color:#6cd5d8;
   width:20%;
   display: inline;
   float:left;
@@ -158,4 +159,9 @@ select{
 
 #button1 img{
   size:50%;
+}
+
+#top{
+  font-size: 15px;
+  -webkit-text-stroke: thick;
 }
