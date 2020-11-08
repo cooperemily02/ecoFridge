@@ -1,6 +1,8 @@
+let current = [];
 $(function(){
+    let ingstr;
     var ms = $('#ms-scrabble').magicSuggest({
-        placeholder: 'Enter your ingredients',
+        placeholder:'',
         allowFreeEntries:true,
         autoSelect:true,
         matchCase:true,
@@ -46,24 +48,139 @@ $(function(){
             'Apple',
             'Shrimp',
             'Greek yogurt', 
-           'cottage cheese', 
-            'yogurt',
-            'whipping cream', 
-           'sour cream',
-           'ground beef', 
-            'pepperoni', 
-            'salami', 
-            'hot dogs,',
-            'green beans', 
-            'grape tomatoes',  
-            'pickles', 
-            'cucumber',
-            'zucchini', 
-            'cauliflower', 
-            'spinach',
+           'Cottage Cheese', 
+            'Yogurt',
+            'Whipping Cream', 
+           'Sour Cream',
+           'Ground Beef', 
+            'Pepperoni', 
+            'Salami', 
+            'Hot Dogs,',
+            'Green Beans', 
+            'Grape Tomatoes',  
+            'Pickles', 
+            'Cucumber',
+            'Zucchini', 
+            'Cauliflower', 
+            'Spinach',
         ]
     });
     $(ms).on('selectionchange', function(){
         console.log((JSON.stringify(this.getSelection())));
+        current = this.getSelection();
+        
       });
 })
+document.getElementById('button1').onclick = function getRecipes() {
+    let str = '';
+    for(let i = 0; i<current.length; i++ )
+    {
+        let newingredient = current[i].name;
+        str+=newingredient;
+        if(i<current.length-1)
+        {
+            str+=',';
+        }
+    }
+    /*
+    let cuisstr = "";
+    var checkboxes = document.querySelectorAll('input[name="cuisine"]:checked');
+    console.log(checkboxes);
+    checkboxes.forEach((checkbox) => {
+        cuisstr+=(checkbox.value);
+    });
+    */
+    let checkboxes = document.getElementsByName('cuisine');
+    let cuisstr = "";
+    for(var i = 0; i < checkboxes.length; i++)  
+    {  
+        if(checkboxes[i].checked)  
+            {
+                cuisstr+=checkboxes[i].id;
+                if(i<checkboxes.length-1)
+                {
+                    cuisstr+=',';
+                }
+            }
+    }  
+
+    let allergy = document.getElementById('allergies').value;
+    let restriction = document.getElementById('diet').value;
+
+    console.log(cuisstr);
+    console.log(current.length);
+    let url = 'https://api.spoonacular.com/recipes/complexSearch?includeIngredients=' + str + '&cuisine=' + cuisstr + '&excludeIngredients=' + allergy + '&diet=' + restriction + '&number=5&apiKey=4ec4e2d99b964af2998e87a70a46d90d';
+    fetch(url).then((res)=>{
+        return res.json();
+    }).then((data)=>{
+        console.log(data)
+        console.log(data.totalResults)
+        if(data.totalResults == 0)
+        {
+            alert("No results!");
+        }
+        for (let i = 0; i<data.totalResults; i++)
+        {
+            createCard(data.results[i])
+        }
+
+    })
+
+}
+
+function createCard(recid)
+{
+    let url2 = 'https://api.spoonacular.com/recipes/' + recid.id + '/information?apiKey=4ec4e2d99b964af2998e87a70a46d90d';
+    let recipelink;
+    fetch(url2).then((res)=>{
+        return res.json();
+    }).then((data)=>{
+        console.log(data)
+        recipelink = data.sourceUrl;
+        
+        let arlink = document.createElement('a');
+        arlink.setAttribute('href', recipelink);
+        arlink.setAttribute('target', '_blank');
+        document.body.appendChild(arlink);
+
+            let newcard = document.createElement('div');
+            newcard.setAttribute('class', "card");
+            arlink.appendChild(newcard);
+
+            let recimg = document.createElement('img');
+            recimg.setAttribute('src', recid.image);
+            newcard.appendChild(recimg);
+
+            let newcontainer = document.createElement('div');
+            newcontainer.setAttribute('class', 'container');
+            newcard.appendChild(newcontainer);
+            
+                let title = document.createElement('h4');
+                title.innerHTML = recid.title;
+                newcontainer.appendChild (title);
+
+        
+    })
+
+
+ 
+
+
+
+
+
+}
+
+document.getElementById('restart').onclick = function restart() {
+    location.reload();
+}
+/*for(let i = 0; i<current.length; i++ )
+{
+    let newingredient = current[i].name;
+    str+=newingredient;
+    if(i<current.length-1)
+    {
+        str+=',';
+    }
+}
+*/
