@@ -109,7 +109,7 @@ document.getElementById('button1').onclick = function getRecipes() {
 
     console.log(cuisstr);
     console.log(current.length);
-    let url = 'https://api.spoonacular.com/recipes/complexSearch?includeIngredients=' + str + '&cuisine=' + cuisstr + '&excludeIngredients=' + allergy + '&diet=' + restriction + '&number=5&apiKey=4ec4e2d99b964af2998e87a70a46d90d';
+    let url = 'https://api.spoonacular.com/recipes/complexSearch?includeIngredients=' + str + '&cuisine=' + cuisstr + '&excludeIngredients=' + allergy + '&diet=' + restriction + '&number=10&apiKey=4ec4e2d99b964af2998e87a70a46d90d';
     fetch(url).then((res)=>{
         return res.json();
     }).then((data)=>{
